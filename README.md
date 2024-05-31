@@ -5,7 +5,7 @@
 ## Set up 💻
 
 - You need to check the official environment setup on https://reactnative.dev/docs/environment-setup
-- [Android Studio](https://developer.android.com/studio):
+- [Android Studio](https://developer.android.com/studio)
 - [XCode](https://developer.apple.com/download/all/)
 - [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
   - Also, you can use this manager [rbenv](https://github.com/rbenv/rbenv).
