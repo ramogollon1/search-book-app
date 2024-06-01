@@ -62,10 +62,10 @@ Or you can run the application opening the our application in Xcode to initializ
 yarn test
 ```
 
-### Demo
+### Demo Android
 
-- Android
-  ![Demo Android](https://github.com/ramogollon1/search-book-app/blob/main/search-app-android.png)
+![Demo Android](https://github.com/ramogollon1/search-book-app/blob/main/search-app-android.png)
 
-- iOS
-  ![Demo iOS](https://github.com/ramogollon1/search-book-app/blob/main/search-app-ios.png)
+### Demo iOS
+
+![Demo iOS](https://github.com/ramogollon1/search-book-app/blob/main/search-app-ios.png)
