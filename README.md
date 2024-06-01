@@ -42,6 +42,22 @@ yarn android
 
 ### For iOS
 
+Important: We need to set up our simulator and open it before we start.
+
+You need to install pods before we can continue
+
+```bash
+cd ios && pod install
+```
+
+After that we can go back to our route
+
+```bash
+cd ..
+```
+
+then we can run our application with this command:
+
 ```bash
 # using npm
 npm run ios
@@ -50,6 +66,4 @@ npm run ios
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Or you can run the application opening the our application in Xcode to initialize it!

@@ -8,15 +8,19 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
       "@navigation/*": ["src/navigation/*"],
       "@redux/*": ["src/redux/*"],
+      "@context/*": ["src/context/*"],
       "@screens/*": ["src/screens/*"],
-      "@types/*": ["src/types/*"],
-      "@utils/*": ["src/utils/*"]
+      "@models/*": ["src/models/*"],
+      "@utils/*": ["src/utils/*"],
+      "@repositories/*": ["src/repositories/*"],
+      "@test/*": ["src/test/*"],
+      "@hooks/*": ["src/hooks/*"]
     }
   },
   "include": ["src", "App.tsx", "index.tsx"],
