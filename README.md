@@ -64,4 +64,8 @@ yarn test
 
 ### Demo
 
-![Demo](https://github.com/ramogollon1/search-book-app/blob/main/book-search.png)
+- Android
+  ![Demo Android](https://github.com/ramogollon1/search-book-app/blob/main/search-app-android.png)
+
+- iOS
+  ![Demo iOS](https://github.com/ramogollon1/search-book-app/blob/main/search-app-ios.png)
