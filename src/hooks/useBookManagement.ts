@@ -12,6 +12,7 @@ import { Book } from '../models/books';
 import {
   MAX_ITEMS_SEARCH_INPUT,
   PAGE_PAGINATION_SIZE,
+  SEARCH_TERM_DEFAULT,
 } from '../utils/constants';
 
 export function useBookManagement(isOffline: boolean) {
@@ -19,7 +20,7 @@ export function useBookManagement(isOffline: boolean) {
   const { loading, error } = useSelector((state: RootState) => state.books);
   const { getOfflineBooks, saveBooks } = useOfflineBooks();
   const { getLastSearchTerm, saveLastSearchTerm } = useLastSearchTerm();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(SEARCH_TERM_DEFAULT);
   const [page, setPage] = useState(1);
   const [allBooks, setAllBooks] = useState<Book[]>([]);
   const [books, setBooks] = useState<Book[]>([]);

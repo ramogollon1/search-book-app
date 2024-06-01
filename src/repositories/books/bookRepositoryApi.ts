@@ -24,7 +24,6 @@ export class BookRepositoryApi implements BookRepository {
   }
 
   async searchBooks(searchTerm: string): Promise<Book[]> {
-    console.log({ searchTerm });
     try {
       const response = await apiOpenLibraryClient.get(
         `/search.json?q=${encodeURIComponent(searchTerm)}`,

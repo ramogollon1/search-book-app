@@ -8,3 +8,5 @@ export const urlImageCoverById = (coverId: number | string) =>
 export const PAGE_PAGINATION_SIZE = 5;
 
 export const MAX_ITEMS_SEARCH_INPUT = 3;
+
+export const SEARCH_TERM_DEFAULT = 'react';
