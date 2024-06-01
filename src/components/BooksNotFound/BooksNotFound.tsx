@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from 'react-native';
 
 function BooksNotFound() {
   return (
-    <View style={styles.noBooksContainer}>
+    <View style={styles.noBooksContainer} testID="no-books-container">
       <Text style={styles.noBooksText}>
         No books were found with that search term.
       </Text>

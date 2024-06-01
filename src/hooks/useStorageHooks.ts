@@ -1,4 +1,4 @@
-import { Book } from '@models/books';
+import { Book } from '../models/books';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function useLastSearchTerm() {

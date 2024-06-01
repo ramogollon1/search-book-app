@@ -1,6 +1,6 @@
-import { Book, BookDetailResponse } from '@models/books';
+import { Book, BookDetailResponse } from '../../models/books';
 import { BookRepository } from './bookRepository';
-import { getBookDetailFixture } from '@test/fixtures/getBookFixture';
+import { getBookDetailFixture } from '../../test/fixtures/books';
 
 export class BookRepositoryFake implements BookRepository {
   async fetchBookDetails(bookId: string): Promise<BookDetailResponse> {

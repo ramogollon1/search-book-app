@@ -9,6 +9,10 @@ import { useSearchBooks } from '../repositories/books/bookRepositoryHooks';
 import { useOfflineBooks, useLastSearchTerm } from './useStorageHooks';
 import { RootState } from '../redux/store';
 import { Book } from '../models/books';
+import {
+  MAX_ITEMS_SEARCH_INPUT,
+  PAGE_PAGINATION_SIZE,
+} from '../utils/constants';
 
 export function useBookManagement(isOffline: boolean) {
   const dispatch = useDispatch();
@@ -17,7 +21,13 @@ export function useBookManagement(isOffline: boolean) {
   const { getLastSearchTerm, saveLastSearchTerm } = useLastSearchTerm();
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(1);
+  const [allBooks, setAllBooks] = useState<Book[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
+  const {
+    data: onlineBooks,
+    isLoading: isSearchingBooks,
+    error: searchBooksError,
+  } = useSearchBooks(searchTerm);
 
   useEffect(() => {
     getLastSearchTerm().then((lastSearchTerm) => {
@@ -27,15 +37,10 @@ export function useBookManagement(isOffline: boolean) {
     });
   }, []);
 
-  const {
-    data: onlineBooks,
-    isLoading: isSearchingBooks,
-    error: searchBooksError,
-  } = useSearchBooks(searchTerm, undefined, page);
-
   useEffect(() => {
     if (onlineBooks) {
-      setBooks((prevBooks) => [...prevBooks, ...onlineBooks]);
+      setAllBooks(onlineBooks);
+      setBooks(onlineBooks.slice(0, PAGE_PAGINATION_SIZE));
       dispatch(fetchBooksSuccess(onlineBooks));
       saveBooks(onlineBooks);
     }
@@ -49,7 +54,7 @@ export function useBookManagement(isOffline: boolean) {
   }, [searchBooksError]);
 
   useEffect(() => {
-    if (searchTerm.length > 3) {
+    if (searchTerm.length > MAX_ITEMS_SEARCH_INPUT) {
       const typingTimeout = setTimeout(() => {
         checkNetworkStatus();
       }, 500);
@@ -74,10 +79,17 @@ export function useBookManagement(isOffline: boolean) {
     setSearchTerm(newSearchTerm);
     saveLastSearchTerm(newSearchTerm);
     setPage(1);
+    setAllBooks([]);
+    setBooks([]);
   };
 
   const nextPage = () => {
     setPage((prevPage) => prevPage + 1);
+    const nextBooks = allBooks.slice(
+      page * PAGE_PAGINATION_SIZE,
+      (page + 1) * PAGE_PAGINATION_SIZE,
+    );
+    setBooks((prevBooks) => [...prevBooks, ...nextBooks]);
   };
 
   return {

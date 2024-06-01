@@ -1,4 +1,4 @@
-import { Book } from '@models/books';
+import { Book } from '../../models/books';
 import { urlImageCoverById } from '../../utils/constants';
 import React from 'react';
 import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
@@ -11,7 +11,7 @@ interface BookItemProps {
 
 const BookItem = ({ item, onPressItem, isOffline = false }: BookItemProps) => {
   return (
-    <TouchableOpacity onPress={onPressItem}>
+    <TouchableOpacity onPress={onPressItem} testID="book-item">
       <View style={styles.itemContainer}>
         {!item.cover_i || isOffline ? (
           <View style={styles.placeholderContainer}>

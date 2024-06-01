@@ -1,10 +1,11 @@
-import { QueryOptions, useQuery } from '@tanstack/react-query';
+import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { useBookRepository } from '../../hooks/useBookRepository';
 import { Book, BookDetailResponse } from '../../models/books';
+import { MAX_ITEMS_SEARCH_INPUT } from '../../utils/constants';
 
 export function useFetchBookDetails(
   bookId: string,
-  options?: QueryOptions<BookDetailResponse>,
+  options?: UseQueryOptions<BookDetailResponse, Error>,
 ) {
   const bookRepository = useBookRepository();
 
@@ -17,7 +18,7 @@ export function useFetchBookDetails(
 
 export function useFetchAuthorDetails(
   authorKey: string,
-  options?: QueryOptions<any>,
+  options?: UseQueryOptions<any, Error>,
 ) {
   const bookRepository = useBookRepository();
 
@@ -30,15 +31,16 @@ export function useFetchAuthorDetails(
 
 export function useSearchBooks(
   searchTerm: string,
-  options?: QueryOptions<Book[]>,
-  page?: number,
+  options?: UseQueryOptions<Book[], Error>,
 ) {
   const bookRepository = useBookRepository();
 
   return useQuery<Book[]>({
     queryKey: ['searchBooks', searchTerm],
-    queryFn: () => bookRepository.searchBooks(searchTerm, page),
-    enabled: !!searchTerm && searchTerm.length > 3,
+    queryFn: () => bookRepository.searchBooks(searchTerm),
+    enabled: !!searchTerm && searchTerm.length > MAX_ITEMS_SEARCH_INPUT,
+    retry: 1,
+    staleTime: 60000,
     ...options,
   });
 }

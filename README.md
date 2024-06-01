@@ -19,10 +19,6 @@ First, you will need to start **Metro**, the JavaScript _bundler_ that ships _wi
 To start Metro, run the following command from the _root_ of your React Native project:
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
 yarn start
 ```
 
@@ -33,10 +29,6 @@ Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _roo
 ### For Android
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
 yarn android
 ```
 
@@ -59,15 +51,17 @@ cd ..
 then we can run our application with this command:
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
 yarn ios
 ```
 
 Or you can run the application opening the our application in Xcode to initialize it!
 
+### Test
+
+```bash
+yarn test
+```
+
 ### Demo
 
-![Demo](https://github.com/ramogollon1/search-book-app/blob/main/book-search-app.png)
+![Demo](https://github.com/ramogollon1/search-book-app/blob/main/book-search.png)
