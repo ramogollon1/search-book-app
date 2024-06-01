@@ -1,4 +1,4 @@
-import { Author } from '@models/authors';
+import { Author } from '../../models/authors';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 

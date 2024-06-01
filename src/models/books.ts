@@ -17,10 +17,3 @@ export interface BookDetailResponse {
   covers: string[] | number[];
   description?: { value: string };
 }
-
-export interface BookListProps {
-  books: Book[];
-  isOfflineItem?: boolean;
-  isSearchingBooks: boolean;
-  setPage: (page: number) => void;
-}

@@ -9,6 +9,7 @@ interface BookCoverProps {
 const BookCover = ({ coverId }: BookCoverProps) => {
   return (
     <Image
+      testID="book-cover-image"
       source={{ uri: urlImageCoverById(coverId) }}
       style={styles.coverImage}
     />
