@@ -12,14 +12,10 @@
 - [Node.js](https://nodejs.org/es/download) (> version 18)
   - Also, you can use this manager [Fast Node Manager (fnm)](https://github.com/Schniz/fnm)
 
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
+## Step 1: Install dependencies
 
 ```bash
-yarn start
+yarn install
 ```
 
 ## Step 2: Start your Application
